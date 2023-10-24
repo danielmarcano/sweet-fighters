@@ -1,8 +1,9 @@
-import "./global.css";
-import "./colors.css";
+import "./assets/styles/global.css";
+import "./assets/styles/colors.css";
+import { MainScreen } from "./screens/MainScreen";
 
 function App() {
-  return <h1>Sweet Huggers</h1>;
+  return <MainScreen />;
 }
 
 export default App;

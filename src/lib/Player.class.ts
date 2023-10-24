@@ -1,4 +1,4 @@
-import { Character } from "./Character.class";
+import { Character } from "./Character.interface";
 
 export class Player {
   name: string;
@@ -48,7 +48,6 @@ export class Player {
 
     if (!target.avoidMode) {
       target.takeLove(lovePower);
-      console.log(`${this.name} sends ${actionPower} love points to ${target.name}.`);
 
       return;
     }
@@ -57,7 +56,6 @@ export class Player {
 
     const remainingLovePower = lovePower - avoidPower;
 
-      target.takeLove(remainingLovePower);
-      console.log(`${this.name} sends ${actionPower} love points to avoidant ${target.name}.`);
+    target.takeLove(remainingLovePower);
   }
 }

@@ -1,4 +1,6 @@
-export class Character {
+import { Character } from "./Character.interface";
+
+export class BaseCharacter implements Character {
   /**
    * An integer [1-100] representing the percentage of maximum
    * avoidance power of the character
@@ -7,7 +9,11 @@ export class Character {
   normalLovePower: number;
   specialLovePower: number;
 
-  constructor(normalLovePower: number, specialLovePower: number, maximumAvoidPower: number) {
+  constructor(
+    normalLovePower: number,
+    specialLovePower: number,
+    maximumAvoidPower: number,
+  ) {
     this.maximumAvoidPower = maximumAvoidPower;
     this.normalLovePower = normalLovePower;
     this.specialLovePower = specialLovePower;
@@ -18,6 +24,6 @@ export class Character {
   }
 
   set maximumAvoidPower(power: number) {
-    this.#maximumAvoidPower = Math.max(0.05, (power / 100));
+    this.#maximumAvoidPower = Math.max(0.05, power / 100);
   }
 }

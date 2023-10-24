@@ -1,9 +1,7 @@
+import "./global.css";
+
 function App() {
-  return (
-    <h1>
-      Sweet Huggers
-    </h1>
-  )
+  return <h1>Sweet Huggers</h1>;
 }
 
-export default App
+export default App;

@@ -8,6 +8,6 @@
 export const translations = {
   "screens.main.musicButton.turnOffLabel": "Turn sound off",
   "screens.main.musicButton.turnOnLabel": "Turn sound on",
-  "screens.main.title": "Sweet Huggers",
+  "screens.main.title": "Sweet Fighters",
   "screens.main.startGameLabel": "Start Game",
 };

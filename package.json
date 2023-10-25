@@ -1,8 +1,9 @@
 {
-  "name": "sweet-huggers",
+  "name": "sweet-fighters",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "author": "Daniel Marcano",
   "scripts": {
     "dev": "vite",
     "build": "tsc -p tsconfig.prod.json && vite build",

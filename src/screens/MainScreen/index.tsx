@@ -1,4 +1,5 @@
 import { Button } from "../../components/Button";
+import { translations } from "../../locale/en";
 import { CSSColor } from "../../utils/obtainCSSColor";
 import { MusicButton } from "./MusicButton";
 import styles from "./index.module.css";
@@ -12,7 +13,7 @@ export function MainScreen({ className }: MainScreenProps) {
     <main className={`${className} ${styles.container}`}>
       <MusicButton className={styles.musicButton} />
 
-      <h1 className={styles.title}>Sweet Huggers</h1>
+      <h1 className={styles.title}>{translations["screens.main.title"]}</h1>
 
       <Button
         type="button"

@@ -57,13 +57,13 @@ export function AudioPlayerProvider({ children }: AudioPlayerProviderProps) {
 
   return (
     <AudioPlayerContext.Provider value={props}>
+      <MusicButton className={styles.musicButton} />
       {children}
       <audio ref={audioRef} loop>
         {audioFiles.map(({ src, type }) => (
           <source key={src} src={src} type={`audio/${type}`} />
         ))}
       </audio>
-      <MusicButton className={styles.musicButton} />
     </AudioPlayerContext.Provider>
   );
 }

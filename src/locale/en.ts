@@ -10,4 +10,12 @@ export const translations = {
   "screens.main.musicButton.turnOnLabel": "Turn sound on",
   "screens.main.title": "Sweet Fighters",
   "screens.main.startGameLabel": "Start Game",
+
+  "screens.playerSelect.title": (playerNumber: number) =>
+    `Select Player ${playerNumber}`,
+  "screens.playerSelect.avatarAlt": (characterName: string) =>
+    `${characterName} avatar`,
+  "screens.playerSelect.previousLabel": "Prev",
+  "screens.playerSelect.nextLabel": "Next",
+  "screens.playerSelect.playLabel": "Play",
 };

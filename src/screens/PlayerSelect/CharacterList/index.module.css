@@ -1,0 +1,84 @@
+.container {
+  padding-inline: 40px;
+  padding-block: 18px;
+  min-height: 100%;
+  background-color: var(--night);
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 1.5rem;
+  margin-block-end: 60px;
+  text-align: center;
+}
+
+.characterList {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+.characterListItem {
+  position: relative;
+  height: 100px;
+  width: 100px;
+  border-radius: 12px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--ghost);
+  color: var(--player-color);
+
+  & span {
+    position: absolute;
+    opacity: 0;
+    font-size: 1.5rem;
+    inset-block-start: -16px;
+    inset-inline-end: -16px;
+  }
+
+  &:hover,
+  &:focus-within,
+  &[aria-selected="true"] {
+    border-color: var(--player-color);
+  }
+
+  &[aria-selected="true"] {
+    transition: border-start-end-radius 0.5s ease-in-out;
+    border-start-end-radius: 54px;
+
+    & .characterButton {
+      border-radius: 12px;
+      border-start-end-radius: 54px;
+      outline-color: revert;
+    }
+
+    & span {
+      transition: opacity 0.5s 0.2s ease-in-out;
+      opacity: 1;
+    }
+  }
+}
+
+.characterButton {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: transparent;
+  outline-color: transparent;
+}
+
+.navigationButtons {
+  display: flex;
+  align-items: center;
+  position: sticky;
+  inset-block-end: 0;
+  margin-block-start: auto;
+}
+
+.nextButton {
+  margin-inline-start: auto;
+}

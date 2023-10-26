@@ -1,9 +1,9 @@
-import { translations } from "../../../locale/en";
-import { Button } from "../../../components/Button";
-import { CSSColor } from "../../../utils/obtainCSSColor";
-import { SoundMaxIcon, SoundMinIcon } from "../../../assets/icons";
+import { translations } from "@/locale/en";
+import { Button } from "@/components/Button";
+import { CSSColor } from "@/utils/obtainCSSColor";
+import { SoundMaxIcon, SoundMinIcon } from "@/assets/icons";
 import styles from "./index.module.css";
-import { useAudioPlayer } from "../useAudioPlayer";
+import { useAudioPlayer } from "@/providers/AudioPlayer/useAudioPlayer";
 
 type MusicButtonProps = {
   className?: string;

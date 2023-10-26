@@ -1,7 +1,7 @@
-import { ActionType } from "../lib/ActionType.enum";
-import { BaseCharacter } from "../lib/Character/BaseCharacter.class";
-import { Game } from "../lib/Game.class";
-import { Player } from "../lib/Player.class";
+import { ActionType } from "@/lib/ActionType.enum";
+import { BaseCharacter } from "@/lib/Character/BaseCharacter.class";
+import { Game } from "@/lib/Game.class";
+import { Player } from "@/lib/Player.class";
 
 function createPlayer(name: string) {
   const avatarSrcPath = "/path";

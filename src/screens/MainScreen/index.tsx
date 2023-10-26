@@ -1,8 +1,8 @@
-import { Button } from "../../components/Button";
-import { translations } from "../../locale/en";
-import { CSSColor } from "../../utils/obtainCSSColor";
+import { Button } from "@/components/Button";
+import { translations } from "@/locale/en";
+import { CSSColor } from "@/utils/obtainCSSColor";
 import styles from "./index.module.css";
-import { useAudioPlayer } from "../../providers/AudioPlayer/useAudioPlayer";
+import { useAudioPlayer } from "@/providers/AudioPlayer/useAudioPlayer";
 import { useEffect } from "react";
 
 type MainScreenProps = {

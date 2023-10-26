@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
-import type { CSSColor } from "../../utils/obtainCSSColor";
-import { obtainCSSColor } from "../../utils/obtainCSSColor";
+import type { CSSColor } from "@/utils/obtainCSSColor";
+import { obtainCSSColor } from "@/utils/obtainCSSColor";
 import styles from "./index.module.css";
 
 type ButtonProps = Partial<Omit<HTMLButtonElement, "children">> & {

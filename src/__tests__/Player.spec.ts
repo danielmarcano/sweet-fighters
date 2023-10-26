@@ -1,5 +1,5 @@
-import { BaseCharacter } from "../lib/Character/BaseCharacter.class";
-import { Player } from "../lib/Player.class";
+import { BaseCharacter } from "@/lib/Character/BaseCharacter.class";
+import { Player } from "@/lib/Player.class";
 
 export function setUpPlayer(activateAvoidMode?: boolean) {
   const name = "Jane";

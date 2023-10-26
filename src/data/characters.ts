@@ -1,5 +1,5 @@
-import { BaseCharacter } from "../lib/Character/BaseCharacter.class";
-import { CharacterFactory } from "../lib/Character/CharacterFactory.class";
+import { BaseCharacter } from "@/lib/Character/BaseCharacter.class";
+import { CharacterFactory } from "@/lib/Character/CharacterFactory.class";
 
 const FLORA = CharacterFactory.createCharacter(
   BaseCharacter,

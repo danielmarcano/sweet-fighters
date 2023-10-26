@@ -1,4 +1,4 @@
-import { BaseCharacter } from "../lib/Character/BaseCharacter.class";
+import { BaseCharacter } from "@/lib/Character/BaseCharacter.class";
 
 describe("Character", () => {
   test("Should create a new Character with the right properties", () => {

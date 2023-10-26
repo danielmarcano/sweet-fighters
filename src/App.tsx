@@ -1,7 +1,7 @@
-import "./assets/styles/global.css";
-import "./assets/styles/colors.css";
-import { MainScreen } from "./screens/MainScreen";
-import { AudioPlayerProvider } from "./providers/AudioPlayer";
+import "@/assets/styles/global.css";
+import "@/assets/styles/colors.css";
+import { MainScreen } from "@/screens/MainScreen";
+import { AudioPlayerProvider } from "@/providers/AudioPlayer";
 import { useState } from "react";
 
 function App() {

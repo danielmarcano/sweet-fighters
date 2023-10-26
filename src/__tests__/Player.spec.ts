@@ -1,18 +1,22 @@
-import { BaseCharacter } from "../lib/BaseCharacter.class";
+import { BaseCharacter } from "../lib/Character/BaseCharacter.class";
 import { Player } from "../lib/Player.class";
 
 export function setUpPlayer(activateAvoidMode?: boolean) {
+  const name = "Jane";
+  const avatarSrcPath = "/path";
   const normalLoveActionPower = 5;
   const specialLoveActionPower = 15;
   const maximumAvoidActionPower = 90;
 
   const character = new BaseCharacter(
+    name,
+    avatarSrcPath,
     normalLoveActionPower,
     specialLoveActionPower,
     maximumAvoidActionPower,
   );
 
-  const player = new Player("Jane", character);
+  const player = new Player(character);
 
   if (activateAvoidMode) {
     player.activateAvoidMode();
@@ -28,11 +32,10 @@ export function setUpPlayer(activateAvoidMode?: boolean) {
 }
 
 describe("Player", () => {
-  it("Should set the correct name and character", () => {
+  it("Should set the correct character", () => {
     const { character, player } = setUpPlayer();
 
     expect(player.character).toBe(character);
-    expect(player.name).toBe("Jane");
   });
 
   describe("loveTaken", () => {

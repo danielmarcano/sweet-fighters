@@ -1,26 +1,29 @@
 import { ActionType } from "../lib/ActionType.enum";
-import { BaseCharacter } from "../lib/BaseCharacter.class";
+import { BaseCharacter } from "../lib/Character/BaseCharacter.class";
 import { Game } from "../lib/Game.class";
 import { Player } from "../lib/Player.class";
 
 function createPlayer(name: string) {
+  const avatarSrcPath = "/path";
   const normalLoveActionPower = 5;
   const specialLoveActionPower = 15;
   const maximumAvoidActionPower = 90;
 
   const character = new BaseCharacter(
+    name,
+    avatarSrcPath,
     normalLoveActionPower,
     specialLoveActionPower,
     maximumAvoidActionPower,
   );
 
-  const player = new Player(name, character);
+  const player = new Player(character);
 
   return player;
 }
 
 function setUpGame() {
-  const game = new Game(createPlayer("Daniel"), createPlayer("Maria"));
+  const game = new Game(createPlayer("Xion"), createPlayer("Mimi"));
 
   return game;
 }

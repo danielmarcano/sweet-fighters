@@ -1,6 +1,8 @@
-import { Character } from "./Character.interface";
+import type { Character } from "./Character.interface";
 
 export class BaseCharacter implements Character {
+  name: string;
+  avatarSrcPath: string;
   /**
    * An integer [1-100] representing the percentage of maximum
    * avoidance power of the character
@@ -10,10 +12,14 @@ export class BaseCharacter implements Character {
   specialLovePower: number;
 
   constructor(
+    name: string,
+    avatarSrcPath: string,
     normalLovePower: number,
     specialLovePower: number,
     maximumAvoidPower: number,
   ) {
+    this.name = name;
+    this.avatarSrcPath = avatarSrcPath;
     this.maximumAvoidPower = maximumAvoidPower;
     this.normalLovePower = normalLovePower;
     this.specialLovePower = specialLovePower;

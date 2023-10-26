@@ -1,13 +1,11 @@
-import { Character } from "./Character.interface";
+import type { Character } from "./Character/Character.interface";
 
 export class Player {
-  name: string;
   #loveTaken: number;
   #avoidMode: boolean;
   character: Character;
 
-  constructor(name: string, character: Character) {
-    this.name = name;
+  constructor(character: Character) {
     this.character = character;
     this.#loveTaken = 0;
     this.#avoidMode = false;

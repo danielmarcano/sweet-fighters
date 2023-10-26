@@ -1,5 +1,7 @@
 import type { ReactNode } from "react";
 import { createContext, useMemo, useRef, useState } from "react";
+import { MusicButton } from "./MusicButton";
+import styles from "./index.module.css";
 
 type AudioFile = {
   src: string;
@@ -61,6 +63,7 @@ export function AudioPlayerProvider({ children }: AudioPlayerProviderProps) {
           <source key={src} src={src} type={`audio/${type}`} />
         ))}
       </audio>
+      <MusicButton className={styles.musicButton} />
     </AudioPlayerContext.Provider>
   );
 }

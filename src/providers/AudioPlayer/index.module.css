@@ -1,0 +1,5 @@
+.musicButton {
+  position: absolute;
+  inset-block-start: 1.125rem;
+  inset-inline-end: 1.125rem;
+}

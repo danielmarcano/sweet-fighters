@@ -1,16 +1,16 @@
 import { Button } from "../../components/Button";
 import { translations } from "../../locale/en";
 import { CSSColor } from "../../utils/obtainCSSColor";
-import { MusicButton } from "../../providers/AudioPlayer/MusicButton";
 import styles from "./index.module.css";
 import { useAudioPlayer } from "../../providers/AudioPlayer/useAudioPlayer";
 import { useEffect } from "react";
 
 type MainScreenProps = {
+  onStartGame: () => void;
   className?: string;
 };
 
-export function MainScreen({ className }: MainScreenProps) {
+export function MainScreen({ onStartGame, className }: MainScreenProps) {
   const { setAudioFiles } = useAudioPlayer();
 
   useEffect(() => {
@@ -28,16 +28,10 @@ export function MainScreen({ className }: MainScreenProps) {
 
   return (
     <main className={`${className} ${styles.container}`}>
-      <MusicButton className={styles.musicButton} />
-
       <h1 className={styles.title}>{translations["screens.main.title"]}</h1>
 
-      <Button
-        type="button"
-        color={CSSColor.MOUNTAIN}
-        onClick={() => new Error("Start game")}
-      >
-        Start Game
+      <Button color={CSSColor.MOUNTAIN} onClick={onStartGame}>
+        {translations["screens.main.startGameLabel"]}
       </Button>
     </main>
   );

@@ -21,7 +21,6 @@ export function MusicButton({ className }: MusicButtonProps) {
       <Button
         className={`${className} ${styles.container}`}
         color={isPlaying ? CSSColor.GRASS : CSSColor.ROSE}
-        type="button"
         ariaLabel={
           isPlaying
             ? translations["screens.main.musicButton.turnOffLabel"]

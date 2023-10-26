@@ -8,6 +8,8 @@ export enum CSSColor {
   GRASS = "grass",
   MOUNTAIN = "mountain",
   BEACH = "beach",
+  NIGHT = "night",
+  GHOST = "ghost",
 }
 
 export function obtainCSSColor(color: CSSColor) {

@@ -1,3 +1,7 @@
+/**
+ * The CSSColor enum values should be udpated
+ * when modifying these colors
+ */
 :root {
   --rose: #ffd6e0;
   --grass: #c1fba4;
@@ -5,4 +9,5 @@
   --sunny: #ffef9f;
   --beach: #4ad5ff;
   --night: #0c0f0a;
+  --ghost: rgba(255, 255, 255, 0.5);
 }

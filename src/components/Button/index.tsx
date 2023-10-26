@@ -4,8 +4,11 @@ import { obtainCSSColor } from "../../utils/obtainCSSColor";
 import styles from "./index.module.css";
 
 type ButtonProps = Partial<Omit<HTMLButtonElement, "children">> & {
-  type: "button" | "submit";
   color: CSSColor;
+  /**
+   *  @default "button"
+   */
+  type?: "button" | "submit";
   children?: ReactNode;
   disabled?: boolean;
   onClick: () => void;

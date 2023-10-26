@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
-import type { CSSColor } from "@/utils/obtainCSSColor";
-import { obtainCSSColor } from "@/utils/obtainCSSColor";
+
+import { obtainCSSColor, CSSColor } from "@/utils/obtainCSSColor";
 import styles from "./index.module.css";
 
 type ButtonProps = Partial<Omit<HTMLButtonElement, "children">> & {
@@ -23,13 +23,13 @@ export function Button({
   onClick,
   className,
 }: ButtonProps) {
-  const CSSColor = obtainCSSColor(color);
+  const cssColor = obtainCSSColor(disabled ? CSSColor.GHOST : color);
 
   return (
     <button
       type={type}
       className={`${className} ${styles.container}`}
-      style={{ color: CSSColor, borderColor: CSSColor }}
+      style={{ color: cssColor, borderColor: cssColor }}
       disabled={disabled}
       onClick={onClick}
     >

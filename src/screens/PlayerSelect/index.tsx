@@ -1,19 +1,22 @@
 import { useState } from "react";
 import { CharacterList } from "./CharacterList";
-import type { Character } from "@/lib/Character/Character.interface";
+import { useGameState } from "@/providers/GameState/useGameState";
 
 type PlayerSelectProps = {
+  onPlayersSelected: () => void;
   className?: string;
 };
 
-export function PlayerSelect({ className }: PlayerSelectProps) {
+export function PlayerSelect({
+  onPlayersSelected,
+  className,
+}: PlayerSelectProps) {
+  const { playerOne, playerTwo, setPlayerOne, setPlayerTwo, setUpGame } =
+    useGameState();
+
   const [currentStep, setCurrentStep] = useState<"player-one" | "player-two">(
     "player-one",
   );
-
-  const [playerOne, setPlayerOne] = useState<Character>();
-
-  const [playerTwo, setPlayerTwo] = useState<Character>();
 
   return (
     <>
@@ -35,7 +38,9 @@ export function PlayerSelect({ className }: PlayerSelectProps) {
           currentCharacter={playerTwo}
           onPreviousStep={() => setCurrentStep("player-one")}
           onNextStep={() => {
-            throw new Error("Start game and show loader");
+            setUpGame();
+
+            onPlayersSelected();
           }}
         />
       ) : null}

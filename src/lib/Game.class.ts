@@ -1,4 +1,5 @@
 import type { Player } from "@/lib/Player.class";
+import { GameEventManager } from "@/lib/GameEventManager.class";
 import { ActionType } from "@/lib/ActionType.enum";
 
 export class Game {
@@ -7,17 +8,23 @@ export class Game {
   #currentPlayer: Player;
   #winner?: Player;
 
+  eventManager: GameEventManager<Game>;
+
   constructor(player1: Player, player2: Player) {
     this.player1 = player1;
     this.player2 = player2;
 
     this.#currentPlayer = this.player1;
+
+    this.eventManager = new GameEventManager<Game>();
   }
 
   endPlayerTurn() {
     this.calculateGameStatus();
 
     this.updateCurrentPlayer();
+
+    this.eventManager.notifyObservers(this);
   }
 
   calculateGameStatus() {

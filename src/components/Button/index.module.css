@@ -1,6 +1,6 @@
 .container {
-  padding-inline: 45px;
-  padding-block: 20px;
+  padding-block: 16px;
+  padding-inline: 8px;
   background-color: transparent;
   border-width: 2px;
   border-style: solid;
@@ -8,4 +8,18 @@
   font-size: 1rem;
   text-transform: uppercase;
   border-radius: 12px;
+  color: var(--button-color);
+}
+
+/*
+* These classes are the same as the "variant" property values
+*/
+.primary {
+  padding-inline: 45px;
+  padding-block: 20px;
+  border-color: var(--button-color);
+}
+
+.secondary {
+  border-color: transparent;
 }

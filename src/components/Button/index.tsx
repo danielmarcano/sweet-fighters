@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 
 import { obtainCSSColor, CSSColor } from "@/utils/obtainCSSColor";
 import styles from "./index.module.css";
@@ -9,6 +9,10 @@ type ButtonProps = Partial<Omit<HTMLButtonElement, "children">> & {
    *  @default "button"
    */
   type?: "button" | "submit";
+  /**
+   *  @default "primary"
+   */
+  variant?: "primary" | "secondary";
   children?: ReactNode;
   disabled?: boolean;
   onClick: () => void;
@@ -17,6 +21,7 @@ type ButtonProps = Partial<Omit<HTMLButtonElement, "children">> & {
 
 export function Button({
   type = "button",
+  variant = "primary",
   color,
   children,
   disabled,
@@ -28,8 +33,8 @@ export function Button({
   return (
     <button
       type={type}
-      className={`${className} ${styles.container}`}
-      style={{ color: cssColor, borderColor: cssColor }}
+      className={`${className} ${styles.container} ${styles[variant]}`}
+      style={{ "--button-color": cssColor } as CSSProperties}
       disabled={disabled}
       onClick={onClick}
     >

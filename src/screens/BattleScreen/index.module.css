@@ -1,0 +1,29 @@
+.container {
+  background-color: var(--night);
+  height: 100%;
+  gap: 3.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: var(--rose);
+}
+
+.actions {
+  background-color: var(--night);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 32px;
+  width: 100%;
+  padding: 16px;
+  position: sticky;
+  inset-block-end: 0;
+  margin-block-start: auto;
+}
+
+.attackActions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

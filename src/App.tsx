@@ -4,6 +4,7 @@ import { MainScreen } from "@/screens/MainScreen";
 import { AudioPlayerProvider } from "@/providers/AudioPlayer";
 import { useState } from "react";
 import { PlayerSelect } from "@/screens/PlayerSelect/index";
+import { BattleScreen } from "./screens/BattleScreen";
 import { GameStateProvider } from "./providers/GameState";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         {currentScreen == "player-select" ? (
           <PlayerSelect onPlayersSelected={() => setCurrentScreen("game")} />
         ) : null}
+        {currentScreen == "game" ? <BattleScreen /> : null}
       </GameStateProvider>
     </AudioPlayerProvider>
   );

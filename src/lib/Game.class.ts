@@ -1,14 +1,23 @@
-import { ActionType } from "./ActionType.enum";
-import { Player } from "./Player.class";
+import type { Player } from "@/lib/Player.class";
+import { ActionType } from "@/lib/ActionType.enum";
 
 export class Game {
   player1: Player;
   player2: Player;
+  #currentPlayer: Player;
   #winner?: Player;
 
   constructor(player1: Player, player2: Player) {
     this.player1 = player1;
     this.player2 = player2;
+
+    this.#currentPlayer = this.player1;
+  }
+
+  endPlayerTurn() {
+    this.calculateGameStatus();
+
+    this.updateCurrentPlayer();
   }
 
   calculateGameStatus() {
@@ -21,29 +30,42 @@ export class Game {
     }
   }
 
-  playTurn(player: Player, actionType: ActionType, target?: Player) {
+  updateCurrentPlayer() {
+    this.#currentPlayer =
+      this.#currentPlayer === this.player1 ? this.player2 : this.player1;
+  }
+
+  playTurn(actionType: ActionType) {
     switch (actionType) {
       case ActionType.AVOID_ACTION:
-        player.activateAvoidMode();
+        this.currentPlayer.activateAvoidMode();
+
         break;
       case ActionType.LOVE_NORMAL_ACTION:
-        if (!target) {
-          throw new Error('Target player is required for love action.');
-        }
-
-        player.performLoveAction(target, player.character.normalLovePower);
+        this.currentPlayer.performLoveAction(
+          this.currentOpponent,
+          this.currentPlayer.character.normalLovePower,
+        );
 
         break;
       case ActionType.LOVE_SPECIAL_ACTION:
-        if (!target) {
-          throw new Error('Target player is required for love action.');
-        }
+        this.currentPlayer.performLoveAction(
+          this.currentOpponent,
+          this.currentPlayer.character.specialLovePower,
+        );
 
-        player.performLoveAction(target, player.character.specialLovePower);
         break;
     }
 
-    this.calculateGameStatus();
+    this.endPlayerTurn();
+  }
+
+  get currentPlayer() {
+    return this.#currentPlayer;
+  }
+
+  get currentOpponent() {
+    return this.#currentPlayer === this.player1 ? this.player2 : this.player1;
   }
 
   get isGameOver() {

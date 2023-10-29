@@ -3,10 +3,9 @@ import { BaseCharacter } from "@/lib/Character/BaseCharacter.class";
 import { Game } from "@/lib/Game.class";
 import { Player } from "@/lib/Player.class";
 
-function createPlayer(name: string) {
+function createPlayer(name: string, specialLoveActionPower: number = 30) {
   const avatarSrcPath = "/path";
   const normalLoveActionPower = 5;
-  const specialLoveActionPower = 15;
   const maximumAvoidActionPower = 90;
 
   const character = new BaseCharacter(
@@ -29,6 +28,12 @@ function setUpGame() {
 }
 
 describe("Game", () => {
+  it("Sets currentPlayer as first player by default", () => {
+    const game = setUpGame();
+
+    expect(game.player1).toBe(game.currentPlayer);
+  });
+
   it("Sets isGameOver as false by default", () => {
     const game = setUpGame();
 
@@ -36,27 +41,13 @@ describe("Game", () => {
   });
 
   it("Sets isGameOver to true when one of the players reaches 100 love points", () => {
-    const game = setUpGame();
+    const game = new Game(createPlayer("Xion", 100), createPlayer("Mimi"));
 
     expect(game.isGameOver).toBeFalsy();
 
-    for (let i = 0; i < 10; i++) {
-      game.playTurn(game.player1, ActionType.LOVE_SPECIAL_ACTION, game.player2);
-    }
+    game.playTurn(ActionType.LOVE_SPECIAL_ACTION);
 
     expect(game.isGameOver).toBeTruthy();
-  });
-
-  it("playTurn throws an error when trying to execute a love action without passing a target opponent", () => {
-    const game = setUpGame();
-
-    expect(() =>
-      game.playTurn(game.player1, ActionType.LOVE_SPECIAL_ACTION),
-    ).toThrowError(/target player/i);
-
-    expect(() =>
-      game.playTurn(game.player1, ActionType.LOVE_NORMAL_ACTION),
-    ).toThrowError(/target player/i);
   });
 
   it("playTurn sets avoidMode correctly", () => {
@@ -64,7 +55,7 @@ describe("Game", () => {
 
     expect(game.player1.avoidMode).toBeFalsy();
 
-    game.playTurn(game.player1, ActionType.AVOID_ACTION);
+    game.playTurn(ActionType.AVOID_ACTION);
 
     expect(game.player1.avoidMode).toBeTruthy();
   });
@@ -72,7 +63,7 @@ describe("Game", () => {
   it("playTurn sets gives the correct love normal action points to the opponent", () => {
     const game = setUpGame();
 
-    game.playTurn(game.player1, ActionType.LOVE_NORMAL_ACTION, game.player2);
+    game.playTurn(ActionType.LOVE_NORMAL_ACTION);
 
     expect(game.player2.loveTaken).toBe(game.player1.character.normalLovePower);
   });
@@ -80,10 +71,20 @@ describe("Game", () => {
   it("playTurn sets gives the correct special love action points to the opponent", () => {
     const game = setUpGame();
 
-    game.playTurn(game.player1, ActionType.LOVE_SPECIAL_ACTION, game.player2);
+    game.playTurn(ActionType.LOVE_SPECIAL_ACTION);
 
     expect(game.player2.loveTaken).toBe(
       game.player1.character.specialLovePower,
     );
+  });
+
+  it("Changes currentPlayer to the opposite one after playTurn is called", () => {
+    const game = setUpGame();
+
+    expect(game.player1).toBe(game.currentPlayer);
+
+    game.playTurn(ActionType.LOVE_SPECIAL_ACTION);
+
+    expect(game.player2).toBe(game.currentPlayer);
   });
 });

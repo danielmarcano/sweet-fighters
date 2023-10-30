@@ -4,7 +4,7 @@ describe("GameEventManager", () => {
   it("Adds a new observer and returns it from addObserver", () => {
     const gameEventManager = new GameEventManager();
 
-    const observer = jest.fn();
+    const observer = vi.fn();
 
     const returnedObserver = gameEventManager.addObserver(observer);
 
@@ -14,10 +14,10 @@ describe("GameEventManager", () => {
   it("Sends event to all observers through notifyObserver", () => {
     const gameEventManager = new GameEventManager();
 
-    const observer1 = jest.fn((data) => `Observer1: ${data}`);
+    const observer1 = vi.fn((data) => `Observer1: ${data}`);
     gameEventManager.addObserver(observer1);
 
-    const observer2 = jest.fn((data) => `Observer2: ${data}`);
+    const observer2 = vi.fn((data) => `Observer2: ${data}`);
     gameEventManager.addObserver(observer2);
 
     expect(observer1).toHaveBeenCalledTimes(0);
@@ -35,7 +35,7 @@ describe("GameEventManager", () => {
   it("Removes observers with removeObserver", () => {
     const gameEventManager = new GameEventManager();
 
-    const observer = jest.fn();
+    const observer = vi.fn();
 
     gameEventManager.addObserver(observer);
 

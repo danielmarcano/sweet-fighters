@@ -1,3 +1,6 @@
+/// <reference types="vitest" />
+// This is a reference directive needed for Vitest types
+// More info here: https://vitest.dev/guide/#configuring-vitest
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import svgr from "vite-plugin-svgr";
@@ -42,5 +45,10 @@ export default defineConfig({
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
+  },
+  test: {
+    globals: true,
+    environment: "happy-dom",
+    setupFiles: ["./vitest.setup.ts"],
   },
 });

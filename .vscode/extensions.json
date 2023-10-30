@@ -4,7 +4,7 @@
     "vunguyentuan.vscode-css-variables",
     "dbaeumer.vscode-eslint",
     "yoavbls.pretty-ts-errors",
-    "Orta.vscode-jest",
+    "ZixuanChen.vitest-explorer",
     "sainoba.px-to-rem"
   ]
 }

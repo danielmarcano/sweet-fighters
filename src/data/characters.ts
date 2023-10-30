@@ -10,4 +10,13 @@ const FLORA = CharacterFactory.createCharacter(
   30,
 );
 
-export const CHARACTERS = [FLORA];
+const LUDOVICO = CharacterFactory.createCharacter(
+  BaseCharacter,
+  "Ludovico",
+  "/images/avatars/ludovico.png",
+  35,
+  35,
+  15,
+);
+
+export const CHARACTERS = [FLORA, LUDOVICO];

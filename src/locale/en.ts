@@ -18,4 +18,8 @@ export const translations = {
   "screens.playerSelect.previousLabel": "Prev",
   "screens.playerSelect.nextLabel": "Next",
   "screens.playerSelect.playLabel": "Play",
+
+  "screens.battleScreen.avoidLabel": "Avoid",
+  "screens.battleScreen.normalAttackLabel": "Normal Attack",
+  "screens.battleScreen.specialAttackLabel": "Special Attack",
 };

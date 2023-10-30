@@ -4,6 +4,7 @@ import { CSSColor } from "@/utils/obtainCSSColor";
 import { useGameState } from "@/providers/GameState/useGameState";
 import { ActionType } from "@/lib/ActionType.enum";
 import { BattleStage } from "./BattleStage";
+import { translations } from "@/locale/en";
 
 type BattleScreenProps = {
   className?: string;
@@ -26,7 +27,7 @@ export function BattleScreen({ className }: BattleScreenProps) {
             game?.playTurn(ActionType.AVOID_ACTION);
           }}
         >
-          Avoid
+          {translations["screens.battleScreen.avoidLabel"]}
         </Button>
 
         <div className={styles.attackActions}>
@@ -35,7 +36,7 @@ export function BattleScreen({ className }: BattleScreenProps) {
             color={CSSColor.SUNNY}
             onClick={() => game?.playTurn(ActionType.LOVE_NORMAL_ACTION)}
           >
-            Normal Attack
+            {translations["screens.battleScreen.normalAttackLabel"]}
           </Button>
 
           <Button
@@ -43,7 +44,7 @@ export function BattleScreen({ className }: BattleScreenProps) {
             color={CSSColor.MOUNTAIN}
             onClick={() => game?.playTurn(ActionType.LOVE_SPECIAL_ACTION)}
           >
-            Special Attack
+            {translations["screens.battleScreen.specialAttackLabel"]}
           </Button>
         </div>
       </footer>
